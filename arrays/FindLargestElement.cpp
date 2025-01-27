@@ -1,21 +1,34 @@
-# include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-    int arr[] = {1,2,3,4,5,};
-   
-
-    int n = sizeof(arr) / sizeof(arr[0]);
-     int largest = arr[0];
-
-    for(int i = 1; i<n; i++){
-        if(arr[i]>largest){
-            largest = arr[i];
+// Function to find the largest element in a vector
+int findLargestElement(const vector<int> &arr, int n) {
+    int max = arr[0];
+    for (int i = 0; i < n; i++) {
+        if (max < arr[i]) {
+            max = arr[i];
         }
     }
-    cout <<"the largest elemet is " << largest << endl;
-    return 0; 
+    return max;
+}
 
+int main() {
+    int n;
 
+    // Input vector size
+    cout << "Enter the size of the array: ";
+    cin >> n;
 
+    // Input vector elements
+    vector<int> arr(n);
+    cout << "Enter " << n << " elements of the array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Call the function to find the largest element
+    int max = findLargestElement(arr, n);
+
+    cout << "The largest element in the array is: " << max << endl;
+    return 0;
 }
