@@ -8,6 +8,7 @@ void pattern5(int n){
         cout << endl;
     }
 }
+
 int main (){
     int n;
     cin >> n;
