@@ -4,8 +4,9 @@ using namespace std;
 void findSecondSmallestLargest(vector<int>& arr) {
     int largest = INT_MIN, secondLargest = INT_MIN;
     int smallest = INT_MAX, secondSmallest = INT_MAX;
+    int n = arr.size();
 
-    for (int i = 0; i < arr.size(); i++) {
+    for (int i = 0; i < n; i++) {
         // Largest and Second Largest
         if (arr[i] > largest) {
             secondLargest = largest;

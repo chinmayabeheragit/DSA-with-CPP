@@ -3,36 +3,47 @@ using namespace std;
 
 // Function to find the length of the longest subarray with sum equal to 'k'
 int getLongestSubarray(vector<int>& a, long long k) {
-    int n = a.size();  // Get the size of the array
+    int n = a.size();
+    int len = 0;
 
-    int len = 0;       // Variable to store the maximum length of subarray
+    for (int i = 0; i < n; i++) {  // Outer loop: starting index of subarray
 
-    // Outer loop to fix the starting point of subarray
-    for (int i = 0; i < n; i++) {
-        // Inner loop to fix the ending point of subarray
-        for (int j = i; j < n; j++) {
-            long long s = 0;  // Initialize subarray sum to 0
+        for (int j = i; j < n; j++) {  // Middle loop: ending index of subarray
 
-            // Loop to calculate the sum of subarray from index i to j
-            for (int K = i; K <= j; K++) {
-                s += a[K];  // Add current element to subarray sum
+            long long s = 0;
+
+            for (int K = i; K <= j; K++) {  // Inner loop: sum of a[i...j]
+                s += a[K];
             }
 
-            // If subarray sum equals 'k', update max length
             if (s == k) {
-                len = max(len, j - i + 1);  // Update length if it's longer
+                len = max(len, j - i + 1);  // Update max length
             }
+
+            // ------- Array Operation Log ----------
+            // Let’s print what happens here
+            // Example: i = 0
+            // j = 0 → sum = 1 → ❌
+            // j = 1 → sum = 1 + 2 = 3 → ❌
+            // j = 2 → sum = 1 + 2 + 1 = 4 → ✅ → len = 3
+            // j = 3 → sum = 1 + 2 + 1 + 0 = 4 → ✅ → len = 4
+            // j = 4 → sum = 1 + 2 + 1 + 0 + 1 = 5 → ❌
+            // j = 5 → sum = 1 + 2 + 1 + 0 + 1 + 1 = 6 → ❌
+            // j = 6 → sum = 1 + 2 + 1 + 0 + 1 + 1 + 0 = 6 → ❌
+            // ✅ Best so far: len = 4
         }
+
+        // Similar logs would appear for i = 1, 2, ..., n-1
     }
 
-    // Return the length of the longest subarray found
     return len;
 }
+
 
 int main()
 {
     // Input array
-    vector<int> a = {1,1,1,1,1,1,1,1,1,1};
+    vector<int> a = {1,1,1,2,1,1,1,1,1,1};
     
     // Target sum
     long long k = 10;

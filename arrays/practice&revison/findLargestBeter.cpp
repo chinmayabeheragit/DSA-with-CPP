@@ -2,8 +2,9 @@
 using namespace std;
 
 int largestElement(vector<int>& arr) {
+    int n = arr.size();
     int maxElement = arr[0]; 
-    for (int i = 1; i < arr.size(); i++) {
+    for (int i = 1; i < n; i++) {
         maxElement = max(maxElement, arr[i]);
     }
     return maxElement;

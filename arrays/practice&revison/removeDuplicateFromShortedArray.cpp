@@ -7,8 +7,9 @@ public:
         if (nums.empty()) return 0;
 
         int i = 0; // slow pointer
+        int n = nums.size();
 
-        for (int j = 1; j < nums.size(); j++) {
+        for (int j = 1; j < n; j++) {
             if (nums[j] != nums[i]) {
                 i++;
                 nums[i] = nums[j];
