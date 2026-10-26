@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile and Run C++",
+            "type": "shell",
+            "command": "g++ -o '${fileDirname}\\${fileBasenameNoExtension}.exe' '${file}'; if ($?) { & '${fileDirname}\\${fileBasenameNoExtension}.exe' }",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

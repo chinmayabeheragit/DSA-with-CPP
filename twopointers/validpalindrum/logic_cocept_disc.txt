@@ -1,0 +1,35 @@
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, 
+it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+so as an example 
+
+"A man, a plan, a canal: panama"
+
+so this i sthe example string - so we have run a loop and keep only alphanumeric and convert to lower case then build and clean string . revser it  then comepare both equal means pallindrum 
+
+Complexity: O(n) time, O(n) space (storing cleaned string)
+
+so approac is instead of building a new string use two pointers from both side 
+
+"A man, a plan, a canal: Panama"
+ ^                             ^
+
+ we will move the pointers from left to right if current char is not alphanumeric -> skip it 
+ move right left if current char is not alphanumeric -> skip it
+
+ compare left and right chars(case insensitive)
+
+ not equal -> retrun false
+ equal -> move both inwad
+
+ when left >= right -> retrun true
+
+ complexity: O(n) time, O(1)space
+
+ visual walk through
+
+
+ s = " A man, a plan, a canal: Panama"
+
+ step 1 - 
